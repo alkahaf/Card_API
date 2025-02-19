@@ -1,5 +1,5 @@
 # Card_API
-# Employee CRUD Application
+# Employee CRUD Application(ReactJs + .NET)
 
 This project is a simple CRUD (Create, Read, Update, Delete) application for managing employee data. It utilizes a .NET MVC backend, a React frontend, and SQL Server for data persistence.I add Framer Motion just to see my Card are dragable on website.  
 
