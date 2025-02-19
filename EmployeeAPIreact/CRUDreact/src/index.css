@@ -1,0 +1,4 @@
+@import "tailwindcss";
+::selection{
+  color: aqua;
+}
