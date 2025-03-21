@@ -4,7 +4,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import { FaUser, FaEdit, FaTrash } from 'react-icons/fa';
 import 'react-toastify/dist/ReactToastify.css';
 
-const CRUD = () => {
+const EmployeePage = () => {
     const [show, setShow] = useState(false);
     const [name, setName] = useState('');
     const [age, setAge] = useState('');
@@ -14,7 +14,6 @@ const CRUD = () => {
     const [editAge, setEditAge] = useState('');
     const [editIsActive, setEditIsActive] = useState(0);
     const [data, setData] = useState([]);
-    const ref = useRef(null);
 
     useEffect(() => {
         getData();
@@ -82,26 +81,35 @@ const CRUD = () => {
                     <button onClick={handleSave} className="bg-blue-500 text-white px-4 py-2 rounded-lg mt-4">Submit</button>
                 </div>
 
-                <div className='flex flex-wrap gap-5 mt-8'>
-                    {data.length > 0 ? (
-                        data.map((item) => (
-                            <div 
-                                key={item.id} 
-                                className='w-80 p-5 bg-gray-800 text-white rounded-lg shadow-lg'>
-                                <FaUser className='text-4xl mx-auto' />
-                                <h3 className='text-lg font-bold mt-3'>{item.name}</h3>
-                                <p>Age: {item.age}</p>
-                                <p>Status: {item.isActive ? 'Active' : 'Inactive'}</p>
-                                <div className='flex justify-between mt-3'>
-                                    <button className='text-blue-500' onClick={() => handleEdit(item.id)}><FaEdit /></button>
-                                    <button className='text-red-500' onClick={() => handleDelete(item.id)}><FaTrash /></button>
-                                </div>
-                            </div>
-                        ))
-                    ) : (
-                        <p>No Employees Found</p>
-                    )}
-                </div>
+                <table className="min-w-full table-auto mt-8">
+                    <thead>
+                        <tr className="bg-gray-800 text-white">
+                            <th className="px-4 py-2">ID</th>
+                            <th className="px-4 py-2">Name</th>
+                            <th className="px-4 py-2">Age</th>
+                            <th className="px-4 py-2">Status</th>
+                            <th className="px-4 py-2">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {data.length > 0 ? (
+                            data.map((item) => (
+                                <tr key={item.id} className="border-b even:bg-gray-100 odd:bg-white">
+                                    <td className="px-4 py-2 text-center">{item.id}</td>
+                                    <td className="px-4 py-2 text-center">{item.name}</td>
+                                    <td className="px-4 py-2 text-center">{item.age}</td>
+                                    <td className="px-4 py-2 text-center">{item.isActive ? 'Active' : 'Inactive'}</td>
+                                    <td className="px-4 py-2 flex justify-center space-x-4">
+                                        <button className='text-blue-500' onClick={() => handleEdit(item.id)}><FaEdit /></button>
+                                        <button className='text-red-500' onClick={() => handleDelete(item.id)}><FaTrash /></button>
+                                    </td>
+                                </tr>
+                            ))
+                        ) : (
+                            <tr><td colSpan="5" className="text-center py-4">No Employees Found</td></tr>
+                        )}
+                    </tbody>
+                </table>
             </div>
 
             {show && (
@@ -124,4 +132,4 @@ const CRUD = () => {
     );
 };
 
-export default CRUD;
+export default EmployeePage;
