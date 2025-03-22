@@ -21,7 +21,7 @@ This application provides a user-friendly interface for managing employee inform
 *   **Update:** Modify existing employee information.
 *   **Delete:** Remove employee records.
 *   **Responsive Design:**  (Mention if applicable) The application is designed to be responsive across different screen sizes.
-*   **Authentication/Authorization:** (Mention if applicable) Secure access with user authentication and authorization.
+
 
 ## Installation
 
